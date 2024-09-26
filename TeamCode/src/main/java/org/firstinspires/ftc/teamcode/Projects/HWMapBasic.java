@@ -33,7 +33,7 @@ public class HWMapBasic extends Project {
 
     @Override
     public void init(HardwareMap hwMap) {
-        // Get motors from hardware map
+        // Get motors from the hardware map
         fLeftWheel = hwMap.dcMotor.get("FrontLeft");
         fRightWheel = hwMap.dcMotor.get("FrontRight");
         bLeftWheel = hwMap.dcMotor.get("BackLeft");
