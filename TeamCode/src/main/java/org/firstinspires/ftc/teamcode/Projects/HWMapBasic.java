@@ -24,6 +24,18 @@ public class HWMapBasic extends Project {
     public DcMotor bRightWheel = null;
     //0
 
+    public Servo armLeft = null;
+
+    public Servo armRight = null;
+
+    public Servo baseLeft = null;
+
+    public Servo baseRight = null;
+
+    public Servo Claw = null;
+
+    public Servo Wrist = null;
+
 
 
 
@@ -66,6 +78,10 @@ public class HWMapBasic extends Project {
         fLeftWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         bRightWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         bLeftWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        //control hub 2 is claw, wrist init at one of limits
+        Wrist.setPosition(0);
+
 //        slide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         //wrist.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
