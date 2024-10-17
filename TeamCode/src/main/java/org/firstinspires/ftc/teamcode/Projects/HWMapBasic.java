@@ -6,6 +6,7 @@ import android.widget.Button;
 import com.google.blocks.ftcrobotcontroller.util.ProjectsUtil;
 import com.qualcomm.robotcore.hardware.AnalogInput;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
@@ -23,18 +24,22 @@ public class HWMapBasic extends Project {
     //1
     public DcMotor bRightWheel = null;
     //0
+    public DcMotor leftLift = null;
 
-    public Servo armLeft = null;
 
-    public Servo armRight = null;
+    public DcMotor rightLift = null;
+    public Servo claw = null;
 
-    public Servo baseLeft = null;
+    public Servo wrist = null;
 
-    public Servo baseRight = null;
+    public Servo lBar = null;
 
-    public Servo Claw = null;
+    public Servo rBar = null;
 
-    public Servo Wrist = null;
+    public Servo lArm = null;
+
+    public Servo rArm = null;
+
 
 
 
@@ -45,11 +50,20 @@ public class HWMapBasic extends Project {
 
     @Override
     public void init(HardwareMap hwMap) {
-        // Get motors from the hardware map
+        // Get motors from hardware map
         fLeftWheel = hwMap.dcMotor.get("FrontLeft");
         fRightWheel = hwMap.dcMotor.get("FrontRight");
         bLeftWheel = hwMap.dcMotor.get("BackLeft");
         bRightWheel = hwMap.dcMotor.get("BackRight");
+        leftLift = hwMap.dcMotor.get("leftLift");
+        rightLift = hwMap.dcMotor.get("rightLeft");
+        claw = hwMap.servo.get("Claw");
+        wrist = hwMap.servo.get("Wrist");
+        lBar = hwMap.servo.get("lBar");
+        rBar = hwMap.servo.get("rBar");
+        lArm = hwMap.servo.get("lArm");
+        rArm = hwMap.servo.get("rArm");
+
 
 
 
@@ -64,13 +78,17 @@ public class HWMapBasic extends Project {
         fLeftWheel.setDirection(DcMotor.Direction.REVERSE);
         bRightWheel.setDirection(DcMotor.Direction.FORWARD);
         bLeftWheel.setDirection(DcMotor.Direction.REVERSE);
+        leftLift.setDirection(DcMotor.Direction.FORWARD);
+        rightLift.setDirection(DcMotor.Direction.REVERSE);
         //wrist.setDirection(DcMotor.Direction.FORWARD);
 
         // Set run mode
-        fRightWheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        fLeftWheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        bRightWheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        bLeftWheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        fRightWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        fLeftWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        bRightWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        bLeftWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        leftLift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightLift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         //wrist.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Set brakes
@@ -78,10 +96,8 @@ public class HWMapBasic extends Project {
         fLeftWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         bRightWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         bLeftWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-
-        //control hub 2 is claw, wrist init at one of limits
-        Wrist.setPosition(0);
-
+        leftLift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightLift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 //        slide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         //wrist.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
@@ -95,7 +111,9 @@ public class HWMapBasic extends Project {
         fLeftWheel.setPower(0);
         bRightWheel.setPower(0);
         bLeftWheel.setPower(0);
-
+        leftLift.setPower(0);
+        rightLift.setPower(0);
+        claw.setPosition(0);
 
 //        slide.setPower(0);
         //wrist.setPower(0);
