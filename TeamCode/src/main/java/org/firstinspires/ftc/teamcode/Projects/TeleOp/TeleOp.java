@@ -87,21 +87,21 @@ public class TeleOp extends LinearOpMode {
                     }
                 }
                 if (gamepad1.right_bumper == true)
-                {robot.Wrist.setPosition(0);
+                {robot.wrist.setPosition(0);
 
                 }
                 if (gamepad1.left_bumper == true)
-                {robot.Wrist.setPosition(1);
+                {robot.wrist.setPosition(1);
 
                 }
                 if (gamepad2.a == true)
-                {robot.armLeft.setPosition(0);
-                    robot.armRight.setPosition(1);
+                {robot.lArm.setPosition(0);
+                    robot.rArm.setPosition(1);
 
                 }
                 if (gamepad2.b == true)
-                {robot.armLeft.setPosition(1);
-                    robot.armRight.setPosition(0);
+                {robot.lArm.setPosition(1);
+                    robot.rArm.setPosition(0);
 
                 }
                 if (gamepad1.x == true)
@@ -113,18 +113,18 @@ public class TeleOp extends LinearOpMode {
 
                 }
                 if (gamepad2.dpad_right == true)
-                {robot.baseLeft.setPosition(1);
-                    robot.baseRight.setPosition(0);
+                {robot.lBar.setPosition(1);
+                    robot.rBar.setPosition(0);
 
                 }
                 if (gamepad2.dpad_left == true)
-                {robot.baseLeft.setPosition(0);
-                    robot.baseRight.setPosition(1);
+                {robot.lBar.setPosition(0);
+                    robot.rBar.setPosition(1);
 
                 }
                 if (gamepad2.dpad_up == true)
-                {robot.baseLeft.setPosition(0.5);
-                    robot.baseRight.setPosition(0.5);
+                {robot.lBar.setPosition(0.5);
+                    robot.rBar.setPosition(0.5);
 
                 }
                 else if (gamepad1.dpad_down == true)
