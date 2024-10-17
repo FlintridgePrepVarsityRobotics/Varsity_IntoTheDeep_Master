@@ -13,6 +13,7 @@ import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.teamcode.Projects.TeleOp.TeleOp;
 
 
 public class HWMapBasic extends Project {
@@ -48,7 +49,7 @@ public class HWMapBasic extends Project {
     public WebcamName camera = null;
 
 
-    @Override
+    //@Override
     public void init(HardwareMap hwMap) {
         // Get motors from hardware map
         fLeftWheel = hwMap.dcMotor.get("FrontLeft");
