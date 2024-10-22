@@ -13,7 +13,8 @@ import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
-import org.firstinspires.ftc.teamcode.Projects.TeleOp.TeleOp;
+import org.firstinspires.ftc.teamcode.Projects.Project;
+
 
 
 public class HWMapBasic extends Project {
