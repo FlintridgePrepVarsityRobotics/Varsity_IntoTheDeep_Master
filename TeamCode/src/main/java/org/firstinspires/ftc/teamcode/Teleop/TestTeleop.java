@@ -49,7 +49,7 @@ public class TestTeleop extends LinearOpMode {
             robot.bLeftWheel.setPower(bLeftPower * speed);
             robot.fRightWheel.setPower(fRightPower * speed);
             robot.bRightWheel.setPower(bRightPower * speed);
-
+//gamepad1=
             if (gamepad2.left_trigger == 1&&rightPosition<0 && leftPosition < 0) {
 
                 rightPosition += 15;
@@ -89,11 +89,9 @@ public class TestTeleop extends LinearOpMode {
                 robot.claw.setPosition(0);
             }
             else if (gamepad1.x){
-                robot.claw.setPosition(1);
+                robot.claw.setPosition(0.3);
             }
-            else if (gamepad1.a){
-                robot.claw.setPosition(0.5);
-            }
+
             if (gamepad1.right_bumper)
             {robot.wrist.setPosition(0);
 
@@ -109,7 +107,7 @@ public class TestTeleop extends LinearOpMode {
             else if(gamepad1.dpad_left){
                 robot.wrist.setPosition(0.25);
             }
-            if (gamepad2.a)
+            if (gamepad2.x)
             {robot.lArm.setPosition(0);
                 robot.rArm.setPosition(1);
 
