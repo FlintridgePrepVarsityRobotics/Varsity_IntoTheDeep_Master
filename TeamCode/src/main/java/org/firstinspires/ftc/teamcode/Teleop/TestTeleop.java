@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.Teleop;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Projects.HWMapBasic;
 
@@ -51,11 +52,11 @@ public class TestTeleop extends LinearOpMode {
 
             if (gamepad1.left_trigger == 1&&rightPosition<0 && leftPosition < 0) {
 
-                rightPosition += 5;
-                leftPosition += 5;
+                rightPosition += 15;
+                leftPosition += 15;
 
-                robot.rightLift.setPower(.4);
-                robot.leftLift.setPower(.4);
+                robot.rightLift.setPower(.8);
+                robot.leftLift.setPower(.8);
                 robot.rightLift.setTargetPosition(rightPosition);
                 robot.leftLift.setTargetPosition(leftPosition);
                 int a = robot.rightLift.getCurrentPosition();
@@ -64,13 +65,13 @@ public class TestTeleop extends LinearOpMode {
                 telemetry.addLine("target position: " + robot.leftLift.getTargetPosition());
                 telemetry.update();
             }
-            else if (gamepad1.right_trigger == 1&&rightPosition > -1800 && leftPosition > -1800) {
+            else if (gamepad1.right_trigger == 1&&rightPosition > -8000 && leftPosition > -8000) {
 
-                rightPosition -= 5;
-                leftPosition -= 5;
+                rightPosition -= 15;
+                leftPosition -= 15;
 
-                robot.rightLift.setPower(.4);
-                robot.leftLift.setPower(.4);
+                robot.rightLift.setPower(.8);
+                robot.leftLift.setPower(.8);
                 robot.rightLift.setTargetPosition(rightPosition);
                 robot.leftLift.setTargetPosition(leftPosition);
                 int a = robot.rightLift.getCurrentPosition();
@@ -84,54 +85,55 @@ public class TestTeleop extends LinearOpMode {
             }
 //             Teleop Code goes here         }
             //drive climb wrist gamepad1 else is gamepad2
-            if (gamepad1.y == true) {
+            if (gamepad1.y) {
+                robot.claw.setPosition(0);
+            }
+            else if (gamepad1.x){
+                robot.claw.setPosition(1);
+            }
+            else if (gamepad1.a){
+                robot.claw.setPosition(0.5);
+            }
+            if (gamepad1.right_bumper)
+            {robot.wrist.setPosition(0);
+
+            }
+            else if (gamepad1.left_bumper)
+            {robot.wrist.setPosition(1);
+
+            }
+            if (gamepad2.a)
+            {robot.lArm.setPosition(0);
+                robot.rArm.setPosition(1);
+
+            }
+            else if (gamepad2.b)
+            {robot.lArm.setPosition(1);
+                robot.rArm.setPosition(0);
+
+            }
+
+
+
+
+            if (gamepad2.dpad_right)
+            {robot.lBar.setPosition(1);
+                robot.rBar.setPosition(0);
+
+            }
+            if (gamepad2.dpad_left)
+            {robot.lBar.setPosition(0);
+                robot.rBar.setPosition(1);
+
+            }
+            if (gamepad2.dpad_up)
+            {robot.lBar.setPosition(0.5);
+                robot.rBar.setPosition(0.5);
+
             }
         }
-        if (gamepad1.right_bumper == true)
-        {robot.wrist.setPosition(0);
 
-        }
-        if (gamepad1.left_bumper == true)
-        {robot.wrist.setPosition(1);
 
-        }
-        if (gamepad2.a == true)
-        {robot.lArm.setPosition(0);
-            robot.rArm.setPosition(1);
-
-        }
-        if (gamepad2.b == true)
-        {robot.lArm.setPosition(1);
-            robot.rArm.setPosition(0);
-
-        }
-        if (gamepad1.x == true)
-        {
-
-        }
-        if (gamepad1.y == true)
-        {
-
-        }
-        if (gamepad2.dpad_right == true)
-        {robot.lBar.setPosition(1);
-            robot.rBar.setPosition(0);
-
-        }
-        if (gamepad2.dpad_left == true)
-        {robot.lBar.setPosition(0);
-            robot.rBar.setPosition(1);
-
-        }
-        if (gamepad2.dpad_up == true)
-        {robot.lBar.setPosition(0.5);
-            robot.rBar.setPosition(0.5);
-
-        }
-        else if (gamepad1.dpad_down == true)
-        {
-
-        }
 
     }
 

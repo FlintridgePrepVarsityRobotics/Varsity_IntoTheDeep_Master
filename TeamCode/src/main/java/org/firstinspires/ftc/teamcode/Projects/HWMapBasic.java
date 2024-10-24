@@ -53,12 +53,12 @@ public class HWMapBasic extends Project {
     //@Override
     public void init(HardwareMap hwMap) {
         // Get motors from hardware map
-        fLeftWheel = hwMap.dcMotor.get("FrontLeft");
-        fRightWheel = hwMap.dcMotor.get("FrontRight");
-        bLeftWheel = hwMap.dcMotor.get("BackLeft");
-        bRightWheel = hwMap.dcMotor.get("BackRight");
-        leftLift = hwMap.dcMotor.get("leftLift");
-        rightLift = hwMap.dcMotor.get("rightLeft");
+        fLeftWheel = hwMap.dcMotor.get("FL");
+        fRightWheel = hwMap.dcMotor.get("FR");
+        bLeftWheel = hwMap.dcMotor.get("BL");
+        bRightWheel = hwMap.dcMotor.get("BR");
+        leftLift = hwMap.dcMotor.get("LL");
+        rightLift = hwMap.dcMotor.get("RL");
         claw = hwMap.servo.get("Claw");
         wrist = hwMap.servo.get("Wrist");
         lBar = hwMap.servo.get("lBar");
@@ -116,6 +116,11 @@ public class HWMapBasic extends Project {
         leftLift.setPower(0);
         rightLift.setPower(0);
         claw.setPosition(0);
+        wrist.setPosition(0);
+        lArm.setPosition(0);
+        rArm.setPosition(1);
+        lBar.setPosition(0);
+        rBar.setPosition(1);
 
 //        slide.setPower(0);
         //wrist.setPower(0);
