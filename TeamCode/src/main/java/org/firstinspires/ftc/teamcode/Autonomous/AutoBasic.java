@@ -107,8 +107,9 @@ public class AutoBasic extends LinearOpMode{
     public void preset1 (){
 
 
-        robot.rBar.setPosition(0.5);
-        robot.lBar.setPosition(0.5);
+
+
+
 
     }
     int[] WaitTillTargetReached(int tolerance, boolean lock){
@@ -156,7 +157,44 @@ public class AutoBasic extends LinearOpMode{
     }
     private void cycle() {
 
-    }
+        //specimen scoring
+
+//if (gamepad2.) {
+//    robot.rBar.setPosition(0);
+//    robot.lBar.setPosition(1);
+//    robot.rArm.setPosition(0);       //Extend fourbar, extend arm, move wrist to face downward
+//    robot.lArm.setPosition(1);
+//    robot.claw.setPosition(0);
+//}
+//
+//if (gamepad2.) {
+//    robot.rBar.setPosition(1);
+//    robot.lBar.setPosition(0);
+//    robot.rArm.setPosition(1);      //Retract fourbar, retract arm, have claw neutral(same direction as arm)
+//    robot.lArm.setPosition(0);
+//    robot.claw.setPosition(.5);
+//}
+//
+//if (gamepad2.) {
+//    robot.rBar.setPosition(1);
+//    robot.lBar.setPosition(0);
+//    robot.rArm.setPosition(1);       //retract fourbar, retract arm, have claw face slightly toward the ground
+//    robot.lArm.setPosition(0);
+//    robot.wrist.setPosition(1);
+//}
+
+//if (gamepad2.) {
+//    robot.rBar.setPosition();
+//    robot.lBar.setPosition();       //preset for pickup from wall from human player
+//    robot.rArm.setPosition();       //retract fourbar, retract arm, wrist tilt slightly toward ground, lift rise to specimen height, then lift rises again after grabbing
+//    robot.lArm.setPosition();
+//    robot.wrist.setPosition();
+//    robot.leftLift.setPower();
+//    robot.rightLift.setPower();
+//    robot.claw.setPosition();
+//    robot.leftLift.setPower();
+//    robot.rightLift.setPower();
 }
+    }
 
 
