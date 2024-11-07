@@ -18,29 +18,29 @@ import org.firstinspires.ftc.teamcode.Projects.Project;
 
 
 public class HWMapBasic extends Project {
-    public DcMotor fLeftWheel = null;
+    public DcMotor fLeftWheel = null; //control hub port 2
     //2
-    public DcMotor fRightWheel = null;
+    public DcMotor fRightWheel = null; //control hub port 3
     //3
-    public DcMotor bLeftWheel = null;
+    public DcMotor bLeftWheel = null; //control hub port 1
     //1
-    public DcMotor bRightWheel = null;
+    public DcMotor bRightWheel = null; //control hub port 0
     //0
-    public DcMotor leftLift = null;
+    public DcMotor leftLift = null; // expan hub motor 1
 
 
-    public DcMotor rightLift = null;
-    public Servo claw = null;
+    public DcMotor rightLift = null; // expan hub motor 0
+    public Servo claw = null; // control hub servo 2
 
-    public Servo wrist = null;
+    public Servo wrist = null; // expan hub servo 3
 
-    public Servo lBar = null;
+    public Servo lBar = null; // control hub servo 1
 
-    public Servo rBar = null;
+    public Servo rBar = null; // expan hub servo 1
 
-    public Servo lArm = null;
+    public Servo lArm = null; // control hub servo 0
 
-    public Servo rArm = null;
+    public Servo rArm = null; // expan hub servo 2
 
 
 
