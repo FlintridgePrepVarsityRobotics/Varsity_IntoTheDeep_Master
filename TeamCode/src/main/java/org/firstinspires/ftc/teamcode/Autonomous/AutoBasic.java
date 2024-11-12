@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.exception.RobotCoreException;
 
@@ -26,14 +25,6 @@ public class AutoBasic extends LinearOpMode{
         int leftPosition = 0;
         int noU = -8000;
         int[] positions;
-        robot.rightLift.setTargetPosition(0);
-        robot.leftLift.setTargetPosition(0);
-        robot.rightLift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.leftLift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        telemetry.addLine("" + robot.leftLift.getCurrentPosition());
-        robot.rightLift.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.leftLift.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
 
         while(!isStarted()){
@@ -44,71 +35,64 @@ public class AutoBasic extends LinearOpMode{
         }
         waitForStart(); //wait for play button to be pressed
         // autonomous happens here
-        robot.fRightWheel.setPower(.25);
-        robot.fLeftWheel.setPower(.25);
-        robot.bRightWheel.setPower(.25);
-        robot.bLeftWheel.setPower(.25);
-        sleep(800);
+        robot.fRightWheel.setPower(.5);
+        robot.fLeftWheel.setPower(.5);
+        robot.bRightWheel.setPower(.5);
+        robot.bLeftWheel.setPower(.5);
+        sleep(1500);
         robot.fRightWheel.setPower(0);
         robot.fLeftWheel.setPower(0);
         robot.bRightWheel.setPower(0);
         robot.bLeftWheel.setPower(0);
         sleep(500);
 
-        robot.rightLift.setTargetPosition(-6000);
-        robot.leftLift.setTargetPosition(-6000);
-        positions = WaitTillTargetReached(50, true);
-//        robot.rightLift.setTargetPosition(rightPosition);
-//        robot.leftLift.setTargetPosition(leftPosition);
-//        rightPosition = positions[0];
-//        leftPosition = positions[1];
-        sleep(3000);
-        robot.fRightWheel.setPower(.25);
-        robot.fLeftWheel.setPower(.25);
-        robot.bRightWheel.setPower(.25);
-        robot.bLeftWheel.setPower(.25);
-        sleep(500);
-        robot.fRightWheel.setPower(0);
-        robot.fLeftWheel.setPower(0);
-        robot.bRightWheel.setPower(0);
-        robot.bLeftWheel.setPower(0);
-        sleep(1000);
-
-        robot.rightLift.setTargetPosition(-5550);
-        robot.leftLift.setTargetPosition(-5550);
-        positions = WaitTillTargetReached(50, true);
-//        robot.rightLift.setTargetPosition(rightPosition);
-//        robot.leftLift.setTargetPosition(leftPosition);
-//        rightPosition = positions[0];
-//        leftPosition = positions[1];
-        sleep(1000);
-        robot.fRightWheel.setPower(-.25);
-        robot.fLeftWheel.setPower(-.25);
-        robot.bRightWheel.setPower(-.25);
-        robot.bLeftWheel.setPower(-.25);
-        sleep(650);
-        robot.claw.setPosition(1);
-        robot.fRightWheel.setPower(0);
-        robot.fLeftWheel.setPower(0);
-        robot.bRightWheel.setPower(0);
-        robot.bLeftWheel.setPower(0);
-        sleep(1000);
-        robot.fRightWheel.setPower(-.25);
-        robot.fLeftWheel.setPower(-.25);
-        robot.bRightWheel.setPower(-.25);
-        robot.bLeftWheel.setPower(-.25);
-        sleep(500);
-        robot.fRightWheel.setPower(0);
-        robot.fLeftWheel.setPower(0);
-        robot.bRightWheel.setPower(0);
-        robot.bLeftWheel.setPower(0);
-        robot.rightLift.setTargetPosition(0);
-        robot.leftLift.setTargetPosition(0);
+        robot.rightLift.setTargetPosition(-3750);
+        robot.leftLift.setTargetPosition(-3750);
         positions = WaitTillTargetReached(50, true);
         robot.rightLift.setTargetPosition(rightPosition);
         robot.leftLift.setTargetPosition(leftPosition);
         rightPosition = positions[0];
         leftPosition = positions[1];
+
+        robot.fRightWheel.setPower(.5);
+        robot.fLeftWheel.setPower(.5);
+        robot.bRightWheel.setPower(.5);
+        robot.bLeftWheel.setPower(.5);
+        sleep(500);
+        robot.fRightWheel.setPower(0);
+        robot.fLeftWheel.setPower(0);
+        robot.bRightWheel.setPower(0);
+        robot.bLeftWheel.setPower(0);
+        sleep(500);
+
+        robot.rightLift.setTargetPosition(-3437);
+        robot.leftLift.setTargetPosition(-3437);
+        positions = WaitTillTargetReached(50, true);
+        robot.rightLift.setTargetPosition(rightPosition);
+        robot.leftLift.setTargetPosition(leftPosition);
+        rightPosition = positions[0];
+        leftPosition = positions[1];
+        sleep(100);
+        robot.fRightWheel.setPower(-.5);
+        robot.fLeftWheel.setPower(-.5);
+        robot.bRightWheel.setPower(-.5);
+        robot.bLeftWheel.setPower(-.5);
+        sleep(300);
+        robot.claw.setPosition(1);
+        robot.fRightWheel.setPower(0);
+        robot.fLeftWheel.setPower(0);
+        robot.bRightWheel.setPower(0);
+        robot.bLeftWheel.setPower(0);
+        sleep(500);
+        robot.fRightWheel.setPower(-.5);
+        robot.fLeftWheel.setPower(-.5);
+        robot.bRightWheel.setPower(-.5);
+        robot.bLeftWheel.setPower(-.5);
+        sleep(300);
+        robot.fRightWheel.setPower(0);
+        robot.fLeftWheel.setPower(0);
+        robot.bRightWheel.setPower(0);
+        robot.bLeftWheel.setPower(0);
 
 
         //while(robot.right.isBusy()|| robot.left.isBusy()) {
@@ -176,10 +160,11 @@ public class AutoBasic extends LinearOpMode{
         //specimen scoring
 
 //if (gamepad2.) {
-//    robot.rArm.setPosition(0);       //Extend fourbar, extend arm, move wrist to face downward, open claw
+//    robot.rBar.setPosition(0);
+//    robot.lBar.setPosition(1);
+//    robot.rArm.setPosition(0);       //Extend fourbar, extend arm, move wrist to face downward
 //    robot.lArm.setPosition(1);
-//    robot.wrist.setPosition(.25);
-//    robot.claw.setPosition(.25);
+//    robot.claw.setPosition(0);
 //}
 //
 //if (gamepad2.) {
