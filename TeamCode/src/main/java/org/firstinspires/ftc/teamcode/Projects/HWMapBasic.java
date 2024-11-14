@@ -45,10 +45,10 @@ public class HWMapBasic extends Project {
         rArm = hwMap.servo.get("rArm");
 
         // Set Direction
-        fRightWheel.setDirection(DcMotor.Direction.FORWARD);
-        fLeftWheel.setDirection(DcMotor.Direction.REVERSE);
-        bRightWheel.setDirection(DcMotor.Direction.FORWARD);
-        bLeftWheel.setDirection(DcMotor.Direction.REVERSE);
+        fRightWheel.setDirection(DcMotor.Direction.REVERSE);
+        fLeftWheel.setDirection(DcMotor.Direction.FORWARD);
+        bRightWheel.setDirection(DcMotor.Direction.REVERSE);
+        bLeftWheel.setDirection(DcMotor.Direction.FORWARD);
         leftLift.setDirection(DcMotor.Direction.FORWARD);
         rightLift.setDirection(DcMotor.Direction.REVERSE);
 
