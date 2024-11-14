@@ -5,6 +5,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+
+import org.firstinspires.ftc.robotcore.external.navigation.CurrentUnit;
 import org.firstinspires.ftc.teamcode.Projects.HWMapBasic;
 
 @TeleOp(name = "lift")
@@ -50,6 +52,10 @@ public class lift extends LinearOpMode {
             robot.bLeftWheel.setPower(bLeftPower * speed);
             robot.fRightWheel.setPower(fRightPower * speed);
             robot.bRightWheel.setPower(bRightPower * speed);
+            double motorCurrent = robot.rightLift.getCurrent(CurrentUnit.AMPS);
+            telemetry.addData("Motor Current (Amps):", motorCurrent);
+            telemetry.update();
+
 //gamepad1=
             if (gamepad2.left_trigger == 1) {
 

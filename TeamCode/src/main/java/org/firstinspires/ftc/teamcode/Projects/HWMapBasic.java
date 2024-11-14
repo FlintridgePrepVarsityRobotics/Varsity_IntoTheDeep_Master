@@ -1,54 +1,32 @@
 package org.firstinspires.ftc.teamcode.Projects;
 
-
 import android.widget.Button;
-
 import com.google.blocks.ftcrobotcontroller.util.ProjectsUtil;
 import com.qualcomm.robotcore.hardware.AnalogInput;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
-
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.teamcode.Projects.Project;
 
-
-
 public class HWMapBasic extends Project {
     public DcMotor fLeftWheel = null; //control hub port 2
-    //2
     public DcMotor fRightWheel = null; //control hub port 3
-    //3
     public DcMotor bLeftWheel = null; //control hub port 1
-    //1
     public DcMotor bRightWheel = null; //control hub port 0
-    //0
-    public DcMotor leftLift = null; // expan hub motor 1
-
-
-    public DcMotor rightLift = null; // expan hub motor 0
+    public DcMotorEx leftLift = null; // expan hub motor 1
+    public DcMotorEx rightLift = null; // expan hub motor 0
     public Servo claw = null; // control hub servo 2
-
     public Servo wrist = null; // expan hub servo 3
-
     public Servo lBar = null; // control hub servo 1
-
     public Servo rBar = null; // expan hub servo 1
-
     public Servo lArm = null; // control hub servo 0
-
     public Servo rArm = null; // expan hub servo 2
-
-
-
-
-
-
     public WebcamName camera = null;
-
 
     //@Override
     public void init(HardwareMap hwMap) {
@@ -57,23 +35,14 @@ public class HWMapBasic extends Project {
         fRightWheel = hwMap.dcMotor.get("FR");
         bLeftWheel = hwMap.dcMotor.get("BL");
         bRightWheel = hwMap.dcMotor.get("BR");
-        leftLift = hwMap.dcMotor.get("LL");
-        rightLift = hwMap.dcMotor.get("RL");
+        leftLift = hwMap.get(DcMotorEx.class, "LL");
+        rightLift = hwMap.get(DcMotorEx.class, "RL");
         claw = hwMap.servo.get("Claw");
         wrist = hwMap.servo.get("Wrist");
         lBar = hwMap.servo.get("lBar");
         rBar = hwMap.servo.get("rBar");
         lArm = hwMap.servo.get("lArm");
         rArm = hwMap.servo.get("rArm");
-
-
-
-
-//        oClaw = hwMap.servo.get("oClaw");
-        //wrist = hwMap.servo.get("wrist");
-        //wrist = hwMap.dcMotor.get("wrist");
-
-
 
         // Set Direction
         fRightWheel.setDirection(DcMotor.Direction.FORWARD);
@@ -82,7 +51,6 @@ public class HWMapBasic extends Project {
         bLeftWheel.setDirection(DcMotor.Direction.REVERSE);
         leftLift.setDirection(DcMotor.Direction.FORWARD);
         rightLift.setDirection(DcMotor.Direction.REVERSE);
-        //wrist.setDirection(DcMotor.Direction.FORWARD);
 
         // Set run mode
         fRightWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -91,7 +59,6 @@ public class HWMapBasic extends Project {
         bLeftWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         leftLift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightLift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        //wrist.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Set brakes
         fRightWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -100,15 +67,14 @@ public class HWMapBasic extends Project {
         bLeftWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         leftLift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightLift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-//        slide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        //wrist.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         // Get webcam from hardware map
         // camera = hwMap.get(WebcamName.class, "webcam");
 
         Stop();
     }
-    public void Stop(){
+
+    public void Stop() {
         fRightWheel.setPower(0);
         fLeftWheel.setPower(0);
         bRightWheel.setPower(0);
@@ -119,11 +85,5 @@ public class HWMapBasic extends Project {
         wrist.setPosition(.825);
         lArm.setPosition(0);
         rArm.setPosition(1);
-        //lBar.setPosition(0.1); //0
-        //rBar.setPosition(.9); //1
-
-//        slide.setPower(0);
-        //wrist.setPower(0);
-        //kevin-Pain
     }
 }
