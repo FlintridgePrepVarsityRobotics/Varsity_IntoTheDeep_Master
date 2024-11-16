@@ -35,49 +35,33 @@ public class AutoBasic extends LinearOpMode{
         }
         waitForStart(); //wait for play button to be pressed
         // autonomous happens here
+        robot.wrist.setPosition(.2);
         robot.fRightWheel.setPower(.5);
         robot.fLeftWheel.setPower(.5);
         robot.bRightWheel.setPower(.5);
         robot.bLeftWheel.setPower(.5);
-        sleep(1500);
+        sleep(1800);
         robot.fRightWheel.setPower(0);
         robot.fLeftWheel.setPower(0);
         robot.bRightWheel.setPower(0);
         robot.bLeftWheel.setPower(0);
         sleep(500);
 
-        robot.rightLift.setTargetPosition(-3750);
-        robot.leftLift.setTargetPosition(-3750);
+        robot.rightLift.setTargetPosition(-3000);
+        robot.leftLift.setTargetPosition(-3000);
         positions = WaitTillTargetReached(50, true);
         robot.rightLift.setTargetPosition(rightPosition);
         robot.leftLift.setTargetPosition(leftPosition);
         rightPosition = positions[0];
         leftPosition = positions[1];
-
-        robot.fRightWheel.setPower(.5);
-        robot.fLeftWheel.setPower(.5);
-        robot.bRightWheel.setPower(.5);
-        robot.bLeftWheel.setPower(.5);
-        sleep(500);
-        robot.fRightWheel.setPower(0);
-        robot.fLeftWheel.setPower(0);
-        robot.bRightWheel.setPower(0);
-        robot.bLeftWheel.setPower(0);
-        sleep(500);
-
-        robot.rightLift.setTargetPosition(-3437);
-        robot.leftLift.setTargetPosition(-3437);
-        positions = WaitTillTargetReached(50, true);
-        robot.rightLift.setTargetPosition(rightPosition);
-        robot.leftLift.setTargetPosition(leftPosition);
-        rightPosition = positions[0];
-        leftPosition = positions[1];
-        sleep(100);
+        sleep(3000);
+        robot.wrist.setPosition(.75);
+       sleep(1000);
         robot.fRightWheel.setPower(-.5);
         robot.fLeftWheel.setPower(-.5);
         robot.bRightWheel.setPower(-.5);
         robot.bLeftWheel.setPower(-.5);
-        sleep(300);
+        sleep(350);
         robot.claw.setPosition(1);
         robot.fRightWheel.setPower(0);
         robot.fLeftWheel.setPower(0);
@@ -89,6 +73,26 @@ public class AutoBasic extends LinearOpMode{
         robot.bRightWheel.setPower(-.5);
         robot.bLeftWheel.setPower(-.5);
         sleep(300);
+        robot.fRightWheel.setPower(0);
+        robot.fLeftWheel.setPower(0);
+        robot.bRightWheel.setPower(0);
+        robot.bLeftWheel.setPower(0);
+        sleep(300);
+        robot.fRightWheel.setPower(.5);
+        robot.fLeftWheel.setPower(-.5);
+        robot.bRightWheel.setPower(.5);
+        robot.bLeftWheel.setPower(-.5);
+        sleep(400);
+        robot.fRightWheel.setPower(0);
+        robot.fLeftWheel.setPower(0);
+        robot.bRightWheel.setPower(0);
+        robot.bLeftWheel.setPower(0);
+        sleep(250);
+        robot.fRightWheel.setPower(-.5);
+        robot.fLeftWheel.setPower(-.5);
+        robot.bRightWheel.setPower(-.5);
+        robot.bLeftWheel.setPower(-.5);
+        sleep(2000);
         robot.fRightWheel.setPower(0);
         robot.fLeftWheel.setPower(0);
         robot.bRightWheel.setPower(0);

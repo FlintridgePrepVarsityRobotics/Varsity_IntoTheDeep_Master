@@ -13,7 +13,7 @@ public class TestTeleop extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
-        double speed = .8;
+        double speed = .7;
         int rightPosition = 0;
         int leftPosition = 0;
         int noU = -8000;
@@ -34,26 +34,29 @@ public class TestTeleop extends LinearOpMode {
         while (opModeIsActive()) {
             boolean aButtonHeld = false;
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
-            double x = -gamepad1.left_stick_x*1; // Counteract imperfect strafing
-            double rx = -gamepad1.right_stick_x*.7;
+            double x = -gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
+            double rx = gamepad1.right_stick_x;
+
             // Denominator is the largest motor power (absolute value) or 1
             // This ensures all the powers maintain the same ratio, but only when
             // at least one is out of the range [-1, 1]
             double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
-            double fLeftPower = (y + x + rx) / denominator;
-            double bLeftPower = (y - x + rx) / denominator;
-            double fRightPower = (y - x - rx) / denominator;
-            double bRightPower = (y + x - rx) / denominator;
+            double frontLeftPower = (y + x + rx) / denominator;
+            double backLeftPower = (y - x + rx) / denominator;
+            double frontRightPower = (y - x - rx) / denominator;
+            double backRightPower = (y + x - rx) / denominator;
 
-            robot.fLeftWheel.setPower(fLeftPower * speed);
-            robot.bLeftWheel.setPower(bLeftPower * speed);
-            robot.fRightWheel.setPower(fRightPower * speed);
-            robot.bRightWheel.setPower(bRightPower * speed);
+            robot.fLeftWheel.setPower(frontLeftPower*speed);
+            robot.bLeftWheel.setPower(backLeftPower*speed);
+            robot.fRightWheel.setPower(frontRightPower*speed);
+            robot.bRightWheel.setPower(backRightPower*speed);
+
+
 //gamepad1=
             if (gamepad2.left_bumper&&leftPosition<0&&rightPosition<0) {
 
-                rightPosition += 45;
-                leftPosition += 45;
+                rightPosition += 35;
+                leftPosition += 35;
 
                 robot.rightLift.setPower(.8);
                 robot.leftLift.setPower(.8);
@@ -76,8 +79,8 @@ public class TestTeleop extends LinearOpMode {
             }
             else if (gamepad2.right_bumper&&leftPosition>-8000&&rightPosition>-8000) {
 
-                rightPosition -= 40;
-                leftPosition -= 40;
+                rightPosition -= 35;
+                leftPosition -= 35;
 
                 robot.rightLift.setPower(.8);
                 robot.leftLift.setPower(.8);
@@ -126,7 +129,7 @@ public class TestTeleop extends LinearOpMode {
             if (gamepad1.dpad_down){ //Wrist Down (when arm is flipped, sample grab, 1 or 0)
                 robot.wrist.setPosition(0);
             }
-            if(gamepad2.y){
+            if(gamepad2.x){
                 robot.rightLift.setTargetPosition(-5015);
                 robot.leftLift.setTargetPosition(-5015);
                 positions = WaitTillTargetReached(50, true);
@@ -141,6 +144,7 @@ public class TestTeleop extends LinearOpMode {
 
             // TODO: INIT POS 0 FOR HEIGHT
             if (gamepad2.a){
+                //bottom
                 telemetry.addLine("Setting slider to zero");
                 telemetry.update();
                 robot.leftLift.setTargetPosition(0);
@@ -155,6 +159,7 @@ public class TestTeleop extends LinearOpMode {
 
             if (gamepad2.y){
                 //lift
+                //max height
                 robot.leftLift.setTargetPosition(-8000);
                 robot.rightLift.setTargetPosition(-8000);
 
@@ -170,6 +175,7 @@ public class TestTeleop extends LinearOpMode {
 
             if (gamepad2.b)
             {
+                //2nd bar height
                 robot.rArm.setPosition(.9); //arm in 1
                 robot.lArm.setPosition(.1); // 0
 
@@ -197,6 +203,7 @@ public class TestTeleop extends LinearOpMode {
             }
 
             if (gamepad2.x){
+                //arm and wrist
                 robot.rArm.setPosition(.9); //arm in 1
                 robot.lArm.setPosition(.1); // 0
                 telemetry.addLine("Setting slider to zero");
@@ -206,17 +213,17 @@ public class TestTeleop extends LinearOpMode {
             }
 
 
-            if (gamepad2.dpad_right)
+            if (gamepad2.dpad_up)
             {robot.rArm.setPosition(.375); //arm out 0
                 robot.lArm.setPosition(.625); // 1
             }
-            if (gamepad2.dpad_left)
+            if (gamepad2.dpad_down)
             {robot.rArm.setPosition(.9); //arm in 1
                 robot.lArm.setPosition(.1); // 0
             }
-            if (gamepad2.dpad_up)
-            {robot.lBar.setPosition(0.5);
-                robot.rBar.setPosition(0.5);
+            if (gamepad2.dpad_left)
+            {//robot.lBar.setPosition(0.5);
+                //robot.rBar.setPosition(0.5);
 
             }
         }

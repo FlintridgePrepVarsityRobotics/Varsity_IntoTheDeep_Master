@@ -14,7 +14,7 @@ import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.teamcode.Projects.Project;
 
 public class HWMapBasic extends Project {
-    public DcMotor fLeftWheel = null; //control hub port 2
+    public DcMotor fLeftWheel = null;  //control hub port 2
     public DcMotor fRightWheel = null; //control hub port 3
     public DcMotor bLeftWheel = null; //control hub port 1
     public DcMotor bRightWheel = null; //control hub port 0
@@ -53,10 +53,10 @@ public class HWMapBasic extends Project {
         rightLift.setDirection(DcMotor.Direction.REVERSE);
 
         // Set run mode
-        fRightWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        fLeftWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        bRightWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        bLeftWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        fRightWheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        fLeftWheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        bRightWheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        bLeftWheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         leftLift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightLift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
