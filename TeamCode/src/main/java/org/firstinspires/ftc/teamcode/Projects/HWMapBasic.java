@@ -22,6 +22,7 @@ public class HWMapBasic extends Project {
     public DcMotorEx rightLift = null; // expan hub motor 0
     public Servo claw = null; // control hub servo 2
     public Servo wrist = null; // expan hub servo 3
+
     public Servo lBar = null; // control hub servo 1
     public Servo rBar = null; // expan hub servo 1
     public Servo lArm = null; // control hub servo 0
@@ -83,7 +84,7 @@ public class HWMapBasic extends Project {
         rightLift.setPower(0);
         claw.setPosition(0);
         wrist.setPosition(.825);
-        lArm.setPosition(0);
-        rArm.setPosition(1);
+        lArm.setPosition(.45);
+        rArm.setPosition(.55);
     }
 }

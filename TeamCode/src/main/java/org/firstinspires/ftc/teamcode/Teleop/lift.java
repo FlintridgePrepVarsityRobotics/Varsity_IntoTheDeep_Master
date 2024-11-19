@@ -48,10 +48,7 @@ public class lift extends LinearOpMode {
             double fRightPower = (y - x - rx) / denominator;
             double bRightPower = (y + x - rx) / denominator;
 
-            robot.fLeftWheel.setPower(fLeftPower * speed);
-            robot.bLeftWheel.setPower(bLeftPower * speed);
-            robot.fRightWheel.setPower(fRightPower * speed);
-            robot.bRightWheel.setPower(bRightPower * speed);
+
             double motorCurrent = robot.rightLift.getCurrent(CurrentUnit.AMPS);
             telemetry.addData("Motor Current (Amps):", motorCurrent);
             telemetry.update();
