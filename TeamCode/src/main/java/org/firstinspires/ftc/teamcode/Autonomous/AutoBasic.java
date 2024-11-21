@@ -114,6 +114,16 @@ public class AutoBasic extends LinearOpMode{
         robot.bRightWheel.setPower(0);
         robot.bLeftWheel.setPower(0);
         sleep(200);
+        robot.fRightWheel.setPower(-.5);
+        robot.fLeftWheel.setPower(.46);
+        robot.bRightWheel.setPower(-.5);
+        robot.bLeftWheel.setPower(.46);
+        sleep(200);
+        robot.fRightWheel.setPower(.46);
+        robot.fLeftWheel.setPower(.46);
+        robot.bRightWheel.setPower(.5);
+        robot.bLeftWheel.setPower(.5);
+        sleep(2000);
 
         // Release claw
         robot.claw.setPosition(.415);
