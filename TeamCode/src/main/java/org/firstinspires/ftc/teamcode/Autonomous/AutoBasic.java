@@ -76,7 +76,7 @@ public class AutoBasic extends LinearOpMode{
         robot.leftLift.setTargetPosition(-1200);
         sleep(3000);
 
-        // wrist midpoint
+        // wrist midpoint :)
         robot.wrist.setPosition(.65);
         sleep(250);
 
